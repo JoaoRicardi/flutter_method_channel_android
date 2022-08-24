@@ -1,16 +1,34 @@
 # flutter_challenge
 
-A new Flutter project.
+Um projeto flutter para avaliar os conhecimnetos do candidato sobre o framework e padroes de projeto.
 
-## Getting Started
+Neste projeto estamos utilizando flavors para lidar com ambientes. Nas suas plataformas foram configurados
+nativamente.No Android em app/build.gradle e no IOS como um novo scheme.
 
-This project is a starting point for a Flutter application.
+Para ver quais ambientes temos disponiveis rodar:
+ 'flutter run'
+ Aonde sera exibido uma lista dos flavors disponiveis.Por exemplo, para rodar em qa devemos utilizar o opcional flavor como abaixo:
 
-A few resources to get you started if this is your first Flutter project:
+ 'flutter run --flavor qa'
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+ qa podendo ser substituido pelo ambiente a ser rodado.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ Neste projeto tambem estamos utilziando a sdk do firebase, por motivos de segurança, o upload dos arquivos de configuracao
+ nao foi para o git (uma vez que é publico) e portanto caso nao seja preenchido vai dar erro ao rodar o app.
+ Para preencher:
+    - No Android:
+     em app/src/$ambiente
+        colocar o google-service.json gerado em um projeto seu no firebase junto com mesmo projecct id que este.
+
+        prod => com.example.flutter_challenge
+        qa => com.example.qa.flutter_challenge
+    - No IOS:
+        criar uma pasta com o seguinte formato:
+        config:
+            qa: GoogleService-Info.plist
+            prod: GoogleService-Info.plist
+        para cada configuracao criar um projeto com o bundle identifier correto como abaixo:
+            qa: com.example.qa.flutterChallenge
+            prod: com.example.flutterChallenge
+
+        ps: a diferenca nos bundle ids se da devido a necessidade de cada plataforma.
