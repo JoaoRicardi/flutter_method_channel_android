@@ -12,6 +12,6 @@ import 'package:flutter_challenge/src/core/firebase/firebase_handler.dart';
 
   await _injection.get<IFirebaseHandler>().initFirebase();
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
