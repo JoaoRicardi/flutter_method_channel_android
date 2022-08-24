@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 abstract class INavigationHandler {
   late GlobalKey<NavigatorState> appGlobalKey;
 
+  BuildContext getContext();
+
   Route<dynamic> appRoutes(RouteSettings settings);
 
   Future<T?> push<T extends Object?>(

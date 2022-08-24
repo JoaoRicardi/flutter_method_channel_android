@@ -32,4 +32,10 @@ class NavigationHandlerImp implements INavigationHandler{
     return appGlobalKey.currentState?.pushNamed(route,arguments: arguments);
   }
 
+
+  @override
+  BuildContext getContext() {
+    return appGlobalKey.currentState!.context;
+  }
+
 }
