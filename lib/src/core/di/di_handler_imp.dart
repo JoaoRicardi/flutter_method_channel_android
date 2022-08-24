@@ -1,6 +1,8 @@
 import 'package:flutter_challenge/src/core/di/di_handler.dart';
 import 'package:flutter_challenge/src/core/firebase/firebase_handler.dart';
 import 'package:flutter_challenge/src/core/firebase/firebase_handler_imp.dart';
+import 'package:flutter_challenge/src/core/navigation/navigation_handler.dart';
+import 'package:flutter_challenge/src/core/navigation/navigation_handler_imp.dart';
 import 'package:get_it/get_it.dart';
 /// classe para lidar com a injecao de dependecias
 /// gerenciar como criamos/instanciamos uma classe
@@ -11,6 +13,12 @@ class DIHandlerImp implements IDIHandler {
 
   @override
   init() {
+    _initCoreModule();
+  }
+
+
+  _initCoreModule(){
+    _getIt.registerLazySingleton<INavigationHandler>(() => NavigationHandlerImp());
     _getIt.registerFactory<IFirebaseHandler>(() => FirebaseHandlerImp());
   }
 
